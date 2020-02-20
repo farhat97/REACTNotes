@@ -1,16 +1,20 @@
 import React from 'react';
 
 class CalcScreen extends React.Component {
-    state = {
+    /*state = {
         firstNumber: null,
         operation: null,
         secondNumber: null
+    }*/
+
+    state = {
+        number: '123'
     }
 
     render() {
         return(
             <div style={{height: '70px'}}>
-                <p> screen </p>
+                <p> {this.props.numberToDisplay} </p>
             </div>
         )
     }

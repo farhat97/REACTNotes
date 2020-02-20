@@ -7,7 +7,6 @@ import CalcScreen from './CalcScreen';
 function App() {
   return (
     <div className="App">
-      <CalcScreen />
       <CalculatorBody />
     </div>
   );

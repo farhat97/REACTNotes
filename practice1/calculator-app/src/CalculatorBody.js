@@ -2,21 +2,31 @@ import React from 'react';
 import './App.css';
 
 import CalcButton from './CalcButton';
+import CalcScreen from './CalcScreen';
 
 class CalculatorBody extends React.Component {
-    
-    // test: callback function
-    callbackFunction = (childData) => {
-        console.log('From body, the data is ', childData);
+
+    state = {
+        currentNumber: ''
     }
     
+    // get the value from the calculator button
+    getValue = (btnValue) => {
+        console.log('From body, the data is ', btnValue);
+
+        // update calcbody state
+        this.setState({currentNumber: this.state.currentNumber.concat(btnValue)});
+    }
     renderButton(i) {
-        return <CalcButton  value={i} parentCallback={this.callbackFunction}/>
+        return <CalcButton  value={i} getButtonValue={this.getValue} setButtonValue={i}/>
     }
 
     render() {
         return(
             <div className="calculatorBody">
+                <div className="calculatorScreen">
+                    <CalcScreen numberToDisplay={this.state.currentNumber}/>
+                </div>
                 <div className="calcRow">
                     {this.renderButton(7)}
                     {this.renderButton(8)}

@@ -4,11 +4,11 @@ import './App.css';
 class CalcButton extends React.Component {
 
     state = {
-        value: null
+        value: this.props.setButtonValue
     }
 
     sendData = () => {
-        this.props.parentCallback('this is from child');
+        this.props.getButtonValue(this.state.value);
     }
     
     render() {
