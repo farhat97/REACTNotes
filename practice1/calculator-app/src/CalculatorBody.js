@@ -4,8 +4,14 @@ import './App.css';
 import CalcButton from './CalcButton';
 
 class CalculatorBody extends React.Component {
+    
+    // test: callback function
+    callbackFunction = (childData) => {
+        console.log('From body, the data is ', childData);
+    }
+    
     renderButton(i) {
-        return <CalcButton  value={i}/>
+        return <CalcButton  value={i} parentCallback={this.callbackFunction}/>
     }
 
     render() {
